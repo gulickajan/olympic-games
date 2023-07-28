@@ -4,11 +4,11 @@ class NewUser
 {
     protected $db;
 
-    protected string $meno;
-    protected string $priezvisko;
-    protected string $prezivka;
-    protected string $heslo;
-    protected string $adresa;
+    protected string $name;
+    protected string $surname;
+    protected string $login;
+    protected string $password;
+    protected string $adress;
 
 
 
@@ -22,7 +22,7 @@ class NewUser
      */
     public function getMeno(): string
     {
-        return $this->meno;
+        return $this->name;
     }
 
     /**
@@ -30,77 +30,77 @@ class NewUser
      */
     public function setMeno(string $meno): void
     {
-        $this->meno = $meno;
+        $this->name = $meno;
     }
 
     /**
      * @return string
      */
-    public function getPriezvisko(): string
+    public function getSurname(): string
     {
-        return $this->priezvisko;
+        return $this->surname;
     }
 
     /**
-     * @param string $priezvisko
+     * @param string $surname
      */
-    public function setPriezvisko(string $priezvisko): void
+    public function setSurname(string $surname): void
     {
-        $this->priezvisko = $priezvisko;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPrezivka(): string
-    {
-        return $this->prezivka;
-    }
-
-    /**
-     * @param string $prezivka
-     */
-    public function setPrezivka(string $prezivka): void
-    {
-        $this->prezivka = $prezivka;
+        $this->surname = $surname;
     }
 
     /**
      * @return string
      */
-    public function getHeslo(): string
+    public function getLogin(): string
     {
-        return $this->heslo;
+        return $this->login;
     }
 
     /**
-     * @param string $heslo
+     * @param string $login
      */
-    public function setHeslo(string $heslo): void
+    public function setLogin(string $login): void
     {
-        $this->heslo = $heslo;
+        $this->login = $login;
     }
 
     /**
      * @return string
      */
-    public function getAdresa(): string
+    public function getPassword(): string
     {
-        return $this->adresa;
+        return $this->password;
     }
 
     /**
-     * @param string $adresa
+     * @param string $password
      */
-    public function setAdresa(string $adresa): void
+    public function setPassword(string $password): void
     {
-        $this->adresa = $adresa;
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdress(): string
+    {
+        return $this->adress;
+    }
+
+    /**
+     * @param string $adress
+     */
+    public function setAdress(string $adress): void
+    {
+        $this->adress = $adress;
     }
 
     public function save()
     {
         $this->db->run("INSERT INTO users (`name`, `surname`, `login`, `password`, `email`) VALUES (?, ?, ?, ?, ?)",
-            [$this->meno, $this->priezvisko, $this->prezivka, $this->heslo, $this->adresa]);
+            [$this->name, $this->surname, $this->login, $this->password, $this->adress]);
 
     }
 }

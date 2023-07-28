@@ -15,10 +15,10 @@
         {
             $newUser = new NewUser($myPdo);
             $newUser->setMeno($_REQUEST["name"]);
-            $newUser->setPriezvisko($_REQUEST["surname"]);
-            $newUser->setPrezivka($_REQUEST["login"]);
-            $newUser->setHeslo(md5($_REQUEST["password"]));
-            $newUser->setAdresa($_REQUEST["email"]);
+            $newUser->setSurname($_REQUEST["surname"]);
+            $newUser->setLogin($_REQUEST["login"]);
+            $newUser->setPassword(md5($_REQUEST["password"]));
+            $newUser->setAdress($_REQUEST["email"]);
             $newUser->save();
             if (true)
             {
