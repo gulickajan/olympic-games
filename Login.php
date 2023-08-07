@@ -9,8 +9,6 @@
 
     if (isset($_POST["prihlasit"]))
     {
-        if (empty($_REQUEST["login"])) { $err[] = "Login je povinné pole"; }
-        if (empty($_REQUEST["password"])) { $err[] = "Heslo je povinné pole"; }
         if (count($err) === 0) {
             $name = $_REQUEST["login"];
             $password = md5($_REQUEST["password"]);
@@ -22,11 +20,6 @@
             } else
             {
                 header("location: UserArea.php");
-            }
-        } else
-        {
-            foreach ($err as $item) {
-                echo '<a class="text-danger">' . (print_r($item, true)) . '</a>';
             }
         }
     }
@@ -47,22 +40,25 @@
 </header>
 
 <body>
-<form action="Login.php" class="row-cols-2 g-2" method="post" enctype="multipart/form-data">
+<form action="Login.php" id="myForm" class="row-cols-2 g-2" method="post" enctype="multipart/form-data">
     <div class="col-md-2">
-        <label for="login" class="form-label">Login</label>
-        <input type="text" class="form-control" name="login" id="login">
+        <label for="userLogin" class="form-label">Login</label>
+        <input type="text" class="form-control" name="userLogin" id="userLogin">
     </div>
     <div class="col-md-2">
-        <label for="password" class="form-label">Heslo</label>
-        <input type="text" class="form-control" name="password" id="password">
+        <label for="userPassword" class="form-label">Heslo</label>
+        <input type="text" class="form-control" name="userPassword" id="userPassword">
     </div>
-    <div class="col-md-2 pt-3 text-start">
+    <div class="col-md-2 gap-2 pt-3">
         <button type="submit" class="btn btn-primary" name="prihlasit">Prihlásiť</button>
+        <a class="btn btn-dark" href="Register.php">Registrovať</a>
     </div>
 </form>
 
-<a href="Register.php" class="alert-link">Ešte nie som registrovaný</a>
-
 <a href="index.php" class="alert-link m-auto">Späť</a>
 </body>
+
+<footer>
+
+</footer>
 </html>

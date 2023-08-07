@@ -8,9 +8,6 @@
     $err = array();
     if (isset($_POST["register"]))
     {
-        if (empty($_REQUEST["login"])) { $err[] = "Login je povinné pole"; }
-        if (empty($_REQUEST["email"])) { $err[] = "Email je povinné pole"; }
-        if (empty($_REQUEST["password"])) { $err[] = "Heslo je povinné pole"; }
         if (count($err) === 0)
         {
             $newUser = new NewUser($myPdo);
@@ -23,11 +20,6 @@
             if (true)
             {
                 header("location: Login.php");
-            }
-        } else
-        {
-            foreach ($err as $item) {
-                echo '<a class="text-danger">' . (print_r($item, true)) . '</a>';
             }
         }
     }
@@ -73,15 +65,16 @@
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" name="email" id="email">
     </div>
-    <div class="col-12 p-3 text-start">
+    <div class="col-12 pt-3 gap-2">
         <button type="submit" class="btn btn-primary" name="register">Registrovať</button>
+        <a href="Login.php" class="btn btn-dark">Už som registrovaný</a>
     </div>
 
 </form>
-<a href="Login.php" class="alert-link">Už som registrovaný</a>
-
-<a href="index.php" class="alert-link">Späť</a>
-
-
 </body>
+
+<footer>
+    <a href="index.php" class="alert-link">Späť</a>
+    <script src="script.js"></script>
+</footer>
 </html>

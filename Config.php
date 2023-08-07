@@ -2,8 +2,8 @@
 
 class Config
 {
-    private $username = "root";
-    private $password = "popo123";
+    private string $username = "root";
+    private string $password = "popo123";
 
     /**
      * @return string
